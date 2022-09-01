@@ -28,10 +28,10 @@ namespace ECommerce.Api.Products.Providers
         {
             if (!dbContext.Products.Any())
             {
-                dbContext.Products.Add(new Db.Product() { Id = 1, Name = "Steel Sword", Description = "A simpple sword made of steel, a good choice for a beginner swordsman.", Price = 100, Inventory = 4 });
-                dbContext.Products.Add(new Db.Product() { Id = 2, Name = "Huntsman's Bow", Description = "Used primarily for hunting wildlife, this bow could be used against your enemies with good results.", Price = 75, Inventory = 2 });
-                dbContext.Products.Add(new Db.Product() { Id = 3, Name = "Crafted Arrow", Description = "Flint head attached to a wooden body topped with a gray feather, nothing fancy but gets the job done.", Price = 2, Inventory = 54 });
-                dbContext.Products.Add(new Db.Product() { Id = 4, Name = "Health Potion", Description = "Makes you feel young again. I hope it has no side effects", Price = 25, Inventory = 7 });
+                dbContext.Products.Add(new Db.Product() { Id = 1, Name = "Steel Sword", Description = "A simpple sword made of steel, a good choice for a beginner swordsman.", Price = 100, Category = "Swords", Inventory = 4 });
+                dbContext.Products.Add(new Db.Product() { Id = 2, Name = "Huntsman's Bow", Description = "Used primarily for hunting wildlife, this bow could be used against your enemies with good results.", Price = 75, Category = "Bows", Inventory = 2 });
+                dbContext.Products.Add(new Db.Product() { Id = 3, Name = "Crafted Arrow", Description = "Flint head attached to a wooden body topped with a gray feather, nothing fancy but gets the job done.", Price = 2, Category = "Arrows", Inventory = 54 });
+                dbContext.Products.Add(new Db.Product() { Id = 4, Name = "Health Potion", Description = "Makes you feel young again. I hope it has no side effects", Price = 25, Category = "Potions", Inventory = 7 });
                 dbContext.SaveChanges();
             }
         }
@@ -48,7 +48,8 @@ namespace ECommerce.Api.Products.Providers
                     var result = mapper.Map<Product>(product);
                     return (true, result, null);
                 }
-                return (false, null, "Not found");
+                //gives error message
+                return (false, null, "[error] This id doesn't match a valid entry, try again with a different id.");
             }
             catch (Exception ex)
             {
@@ -69,7 +70,7 @@ namespace ECommerce.Api.Products.Providers
                     var result = mapper.Map<IEnumerable<Product>>(products);
                     return (true, result, null);
                 }
-                return (false, null, "Not found");
+                return (false, null, "Not found");  
             }
             catch (Exception ex)
             {
