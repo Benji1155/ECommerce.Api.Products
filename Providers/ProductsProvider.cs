@@ -28,10 +28,10 @@ namespace ECommerce.Api.Products.Providers
         {
             if (!dbContext.Products.Any())
             {
-                dbContext.Products.Add(new Db.Product() { Id = 1, Name = "Keyboard", Price = 20, Inventory = 100 });
-                dbContext.Products.Add(new Db.Product() { Id = 2, Name = "Mouse", Price = 5, Inventory = 200 });
-                dbContext.Products.Add(new Db.Product() { Id = 3, Name = "Monitor", Price = 150, Inventory = 1000 });
-                dbContext.Products.Add(new Db.Product() { Id = 4, Name = "CPU", Price = 200, Inventory = 2000 });
+                dbContext.Products.Add(new Db.Product() { Id = 1, Name = "Steel Sword", Description = "A simpple sword made of steel, a good choice for a beginner swordsman.", Price = 100, Inventory = 4 });
+                dbContext.Products.Add(new Db.Product() { Id = 2, Name = "Huntsman's Bow", Description = "Used primarily for hunting wildlife, this bow could be used against your enemies with good results.", Price = 75, Inventory = 2 });
+                dbContext.Products.Add(new Db.Product() { Id = 3, Name = "Crafted Arrow", Description = "Flint head attached to a wooden body topped with a gray feather, nothing fancy but gets the job done.", Price = 2, Inventory = 54 });
+                dbContext.Products.Add(new Db.Product() { Id = 4, Name = "Health Potion", Description = "Makes you feel young again. I hope it has no side effects", Price = 25, Inventory = 7 });
                 dbContext.SaveChanges();
             }
         }
